@@ -1,0 +1,48 @@
+@mixin gridFlowCol($justify: start, $align: inherit) {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin hover($bgcolor: rgb(var(--fg-color))) {
+  transition: background-color var(--transition);
+  &:hover {
+    background-color: $bgcolor;
+  }
+}
+
+@mixin tooltip(
+  $bgColor: rgb(var(--fg-color)),
+  $textColor: rgb(var(--text-color))
+) {
+  & {
+    position: relative;
+  }
+  &:after {
+    content: attr(data-title);
+    position: absolute;
+    background-color: $bgColor;
+    text-transform: capitalize;
+    top: calc(100% + 14px);
+    justify-self: center;
+    transform: translateX(calc(-100% / 3.5));
+    border: 1px solid rgba(var(--text-color), 0.2);
+    color: $textColor;
+    font-weight: 500;
+    padding: 7px;
+    border-radius: 4px;
+    font-size: 9.5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--transition) 0.1s;
+    transition-duration: 0.7s !important;
+    z-index: 100;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  &:hover::after {
+    visibility: visible;
+    opacity: 1;
+  }
+}

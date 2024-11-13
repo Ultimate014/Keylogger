@@ -1,0 +1,37 @@
+.button {
+  background-color: transparent;
+  color: rgb(var(--text-color));
+  border: none;
+  padding: 10px 24px;
+  border-radius: 10rem;
+  font-family: inherit;
+  letter-spacing: -0.5px;
+  word-spacing: -0.2rem;
+
+  &.-primary {
+    background-color: rgb(var(--primary-color));
+  }
+}
+
+.keys {
+  display: grid;
+  align-content: center;
+  text-align: center;
+  border: 1px solid rgba(var(--text-color), 0.15);
+  border-radius: 4px;
+  padding: 14px 0;
+  font-size: 16px;
+  height: 20px;
+  flex: 1 1 60px;
+  transition: background-color var(--transition);
+  max-width: 80px;
+
+  &.special {
+    flex: 1 1 120px;
+    max-width: 240px;
+    background-color: rgba(var(--fg-color), 0.15);
+  }
+  &.indicate {
+    background-color: rgb(var(--primary-color));
+  }
+}

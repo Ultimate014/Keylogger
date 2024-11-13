@@ -1,0 +1,58 @@
+@import "@/utils/_mixins.scss";
+.header {
+  @include gridFlowCol(start, center);
+  border-bottom: 2px solid rgb(var(--fg-color));
+  padding: 16px;
+  grid-template-columns: 1fr auto;
+
+  .name {
+    column-gap: 8px;
+    @include gridFlowCol(start, center);
+    span {
+      font-size: clamp(16px, 1.8vw, 16px);
+      font-weight: 350;
+    }
+  }
+  &-tabs,
+  .options,
+  .filter {
+    column-gap: 24px;
+    @include gridFlowCol();
+    align-items: center;
+  }
+
+  &-tabs,
+  .filter {
+    // overflow: hidden;
+    border: 1px solid rgba(var(--text-color), 0.25);
+    border-radius: 6px;
+    padding: 4px;
+    height: 100%;
+    box-sizing: border-box;
+    // background-color: rgb(var(--fg-color));
+    column-gap: 2px;
+
+    span {
+      display: grid;
+      align-items: center;
+      border-radius: 2px;
+      padding: 6px 8px;
+      cursor: pointer;
+      @include hover();
+      @include tooltip();
+
+      &.active {
+        background-color: rgba(var(--text-color), 0.1);
+      }
+    }
+  }
+
+  .filter {
+    padding: 0;
+    span {
+      height: 100%;
+      box-sizing: border-box;
+      border-radius: inherit;
+    }
+  }
+}

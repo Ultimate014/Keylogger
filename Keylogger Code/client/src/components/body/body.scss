@@ -1,0 +1,34 @@
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24px 16px;
+  max-height: 100%;
+  box-sizing: border-box;
+  align-content: start;
+  grid-gap: 16px;
+  overflow-y: auto;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    #000 24px,
+    #000 calc(100% - 24px),
+    transparent
+  );
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.no-keys {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  grid-auto-flow: column;
+  gap: 16px;
+  justify-content: center;
+  span {
+    font-size: clamp(16px, 2.5vw, 20px);
+  }
+}
